@@ -1,0 +1,25 @@
+let student={
+    name:"Chandan",grade:85,subjects:["Maths","Java","C"],
+    displayInfo:function()
+    {
+        console.log("Name:"+this.name);
+        console.log("Grade:"+this.grade);
+        console.log("Subjects:"+this.subjects.join(","));
+    }
+};
+function checkGrade(studentObj)
+{
+    if(studentObj.grade>=50)
+    {
+        studentObj.passed=true;
+    }
+    else{
+        studentObj.passed=false;
+    }
+}
+student.displayInfo();
+checkGrade(student);
+console.log("\nStudent Object Details:");
+for(let key in student){
+    console.log(`${key}:${student[key]}`);
+}
