@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation and DOM Manipulation</title>
+</head>
+<body>
+    <h3>Event Delegation Example</h3>
+    <ul id="mylist">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="addBtn">Add item</button>
+    <button id="removeBtn">Remove Last</button>
+    <button id="accessBtn">Access First Item</button>
+    <p id="output"></p>
+
+    <script>
+        const ul = document.getElementById("mylist");
+        const output = document.getElementById("output");
+
+        ul.addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                output.innerText = "You clicked on: " + event.target.innerText;
+            }
+        });
+
+        document.getElementById("addBtn").addEventListener("click", function() {
+            const newItem = document.createElement("li");
+            newItem.textContent = "New Item " + (ul.children.length + 1);
+            ul.appendChild(newItem);
+        });
+
+        document.getElementById("removeBtn").addEventListener("click", function() {
+            if (ul.lastElementChild) {
+                ul.removeChild(ul.lastElementChild);
+            }
+        });
+
+        document.getElementById("accessBtn").addEventListener("click", function() {
+            if (ul.firstElementChild) {
+                output.innerText = "First item is: " + ul.firstElementChild.innerText;
+            }
+        });
+    </script>
+</body>
+</html>
