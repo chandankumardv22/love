@@ -46,31 +46,15 @@
 
     <div class="gallery" id="gallery">
       <img
-        src=" "
-        data-tags="forest"
-        alt="Kitten"
+        src=" "   data-tags="forest"  alt="Kitten"
       />
-      <img
-      src=" "
-      data-tags="vehicles"
-        alt="Bear"
-      />
-      <img
-        src=" "
-      data-tags="hills"
-        alt="hills"
-      />
+      <img  src=" " data-tags="vehicles"  alt="Bear" />
+      <img  src=" " data-tags="hills"    alt="hills" />
       
       <img
-        src=" "
-        data-tags="birds"
-        alt="Bird"
+        src=" "data-tags="birds"  alt="Bird"
       />
-      <img
-            src=" "
-      data-tags="birds"
-        alt="Bird"
-      />
+      <img  src=" "data-tags="birds"  alt="Bird" />
     </div>
 
     <script>
