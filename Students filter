@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Department Filter Example</title>
+  </head>
+  <body>
+    <h2>Student Department Filter Example</h2>
+    <div class="buttons" id="buttonContainer"></div>
+    <div class="student-list" id="studentList">
+      <div class="student-card" data-tag="IT">
+        <strong>Priya Shah</strong><br/>Department: IT
+      </div>
+      <div class="student-card" data-tag="CSE">
+        <strong>Rahul Verma</strong><br/>Department: CSE
+      </div>
+      <div class="student-card" data-tag="MECH">
+        <strong>Ishan Roy</strong><br/>Department: MECH
+      </div>
+      <div class="student-card" data-tag="ECE">
+        <strong>Nidhi Sen</strong><br/>Department: ECE
+      </div>
+      <div class="student-card" data-tag="CSE">
+        <strong>Manish Das</strong><br/>Department: CSE
+      </div>
+    </div>
+    <script>
+      const images = document.querySelectorAll(".student-card");
+      const buttonContainer = document.getElementById("buttonContainer");
+      const tagged = {};
+
+      images.forEach(card => {
+        const tag = card.dataset.tag;
+        if (!tagged[tag]) tagged[tag] = [];
+        tagged[tag].push(card);
+      });
+
+      const allBtn = document.createElement("button");
+      allBtn.textContent = "All";
+      allBtn.onclick = () => {
+        images.forEach(card => card.style.display = "");
+      };
+      buttonContainer.appendChild(allBtn);
+
+      Object.keys(tagged).forEach(tag => {
+        const btn = document.createElement("button");
+        btn.textContent = tag;
+        btn.onclick = () => {
+          images.forEach(card => card.style.display = "none");
+          tagged[tag].forEach(card => card.style.display = "");
+        };
+        buttonContainer.appendChild(btn);
+      });
+    </script>
+  </body>
+</html>
